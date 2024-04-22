@@ -16,5 +16,6 @@ docs/.DS_Store
 examples/.DS_Store
 
 # PHPUnit
+.phpunit.cache/
 .phpunit.result.cache
 test/unit/_html
