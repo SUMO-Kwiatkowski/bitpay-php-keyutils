@@ -20,7 +20,7 @@ class FilesystemStorageTest extends TestCase
     public function testPersist(): void
     {
         $filesystemStorage = $this->createClassObject();
-        $keyInterface = $this->getMockBuilder(Key::class)->setMockClassName('KeyMock')->getMock();
+        $keyInterface = $this->getMockBuilder(Key::class)->setMockClassName('KeyMock1')->getMock();
         $keyInterface->method('getId')->willReturn(__DIR__ . '/test1.txt');
         self::assertFileExists(__DIR__ . '/test1.txt');
         @chmod(__DIR__ . 'test1.txt', 0777);
