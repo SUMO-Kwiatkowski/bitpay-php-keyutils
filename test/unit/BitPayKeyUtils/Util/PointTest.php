@@ -61,11 +61,12 @@ class PointTest extends TestCase
 
     public function testUnserialize(): void
     {
-        $expectedValue = '[-2, 3]';
         $testedData = 'a:2:{i:0;s:2:"-2";i:1;s:1:"3";}';
 
         $point = $this->createClassObject();
-        self::assertSame(null, $point->unserialize($testedData));
+        $point->unserialize($testedData);
+        self::assertSame('-2', $point->getX());
+        self::assertSame('3', $point->getY());
     }
 
     public function test__serialize(): void
@@ -78,10 +79,10 @@ class PointTest extends TestCase
 
     public function test__unserialize(): void
     {
-        $expectedValue = ['-2', '3'];
-
         $point = $this->createClassObject();
-        self::assertSame(null, $point->__unserialize(['-2', '3']));
+        $point->__unserialize(['-2', '3']);
+        self::assertSame('-2', $point->getX());
+        self::assertSame('3', $point->getY());
     }
 
     private function createClassObject(): Point

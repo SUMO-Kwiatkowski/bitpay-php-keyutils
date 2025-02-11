@@ -16,8 +16,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      * @throws Exception
      * @throws Exception
@@ -56,8 +56,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return int
      * @throws Exception
      * @throws Exception
@@ -72,8 +72,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string|null
      * @throws Exception
      * @throws Exception
@@ -136,8 +136,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string|null
      * @throws Exception
      * @throws Exception
@@ -156,8 +156,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      * @throws Exception
      * @throws Exception
@@ -172,8 +172,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      * @throws Exception
      * @throws Exception
@@ -188,8 +188,8 @@ class BcEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      * @throws Exception
      * @throws Exception

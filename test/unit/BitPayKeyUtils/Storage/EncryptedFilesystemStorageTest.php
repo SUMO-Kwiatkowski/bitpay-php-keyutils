@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace BitPayKeyUtils\UnitTest\Storage;
 
 use BitPayKeyUtils\KeyHelper\Key;
+use BitPayKeyUtils\KeyHelper\KeyInterface;
 use BitPayKeyUtils\Storage\EncryptedFilesystemStorage;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class EncryptedFilesystemStorageTest extends TestCase
@@ -19,10 +21,14 @@ class EncryptedFilesystemStorageTest extends TestCase
     public function testPersist(): void
     {
         $encryptedFilesystemStorage = $this->createClassObject();
+        /**
+         * @var KeyInterface|MockObject
+         */
         $keyInterface = $this->getMockBuilder(Key::class)->setMockClassName('KeyMock2')->getMock();
         $keyInterface->method('getId')->willReturn(__DIR__ . '/test11.txt');
         self::assertFileExists(__DIR__ . '/test11.txt');
-        self::assertSame(null, $encryptedFilesystemStorage->persist($keyInterface));
+        $encryptedFilesystemStorage->persist($keyInterface);
+        self::assertFileExists(__DIR__ . '/test11.txt');
     }
 
     public function testLoadNotFindException(): void

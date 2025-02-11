@@ -18,4 +18,9 @@ interface KeyInterface extends Serializable
      * @return boolean
      */
     public function isValid();
+
+    /**
+     * @return string
+     */
+    public function getId();
 }

@@ -79,14 +79,14 @@ class ErrorTest extends TestCase
     public function testHandlerWithActionFalse(): void
     {
         $testedObject = $this->getTestedClassObject();
-        $result = $testedObject->handler('error', false);
+        $result = $testedObject->handler('error', '');
         self::assertFalse($result);
     }
 
     public function testHandlerWithTypeExceptionAndNoAction(): void
     {
         $testedObject = $this->getTestedClassObject();
-        $result = $testedObject->handler('exception', false);
+        $result = $testedObject->handler('exception', '');
         self::assertFalse($result);
     }
 

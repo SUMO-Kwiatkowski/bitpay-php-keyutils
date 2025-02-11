@@ -5,8 +5,8 @@ namespace BitPayKeyUtils\Math;
 class GmpEngine implements EngineInterface
 {
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function add($a, $b)
@@ -15,8 +15,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function cmp($a, $b)
@@ -25,8 +25,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @param int $round
      * @return string
      */
@@ -36,8 +36,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function invertm($a, $b)
@@ -46,8 +46,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function mod($a, $b)
@@ -56,8 +56,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function mul($a, $b)
@@ -66,8 +66,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function pow($a, $b)
@@ -76,8 +76,8 @@ class GmpEngine implements EngineInterface
     }
 
     /**
-     * @param String $a Numeric String
-     * @param String $b Numeric String
+     * @param string $a Numeric String
+     * @param string $b Numeric String
      * @return string
      */
     public function sub($a, $b)

@@ -103,7 +103,7 @@ class PublicKey extends Key
      * @return PublicKey
      * @throws Exception
      */
-    public function generate(PrivateKey $privateKey = null)
+    public function generate(?PrivateKey $privateKey = null)
     {
         if ($privateKey instanceof PrivateKey) {
             $this->setPrivateKey($privateKey);

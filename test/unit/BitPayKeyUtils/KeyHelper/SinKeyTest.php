@@ -7,6 +7,7 @@ namespace BitPayKeyUtils\UnitTest\KeyHelper;
 use BitPayKeyUtils\KeyHelper\PrivateKey;
 use BitPayKeyUtils\KeyHelper\PublicKey;
 use BitPayKeyUtils\KeyHelper\SinKey;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class SinKeyTest extends TestCase
@@ -38,6 +39,9 @@ class SinKeyTest extends TestCase
 
     public function testSetPublicKey(): void
     {
+        /**
+         * @var PublicKey|MockObject
+         */
         $publicKey = $this->getMockBuilder(PublicKey::class)->getMock();
 
         self::assertSame($this->sinKey, $this->sinKey->setPublicKey($publicKey));
