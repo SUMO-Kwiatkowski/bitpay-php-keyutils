@@ -7,6 +7,7 @@ namespace BitPayKeyUtils\UnitTest\KeyHelper;
 use BitPayKeyUtils\KeyHelper\PrivateKey;
 use BitPayKeyUtils\KeyHelper\PublicKey;
 use BitPayKeyUtils\KeyHelper\SinKey;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class PublicKeyTest extends TestCase
@@ -16,6 +17,9 @@ class PublicKeyTest extends TestCase
 
     public function testCreateFromPrivateKey(): void
     {
+        /**
+         * @var PrivateKey|MockObject
+         */
         $privateKeyMock = $this->createMock(PrivateKey::class);
 
         $result = PublicKey::createFromPrivateKey($privateKeyMock);
@@ -24,6 +28,9 @@ class PublicKeyTest extends TestCase
 
     public function testSetPrivateKey(): void
     {
+        /**
+         * @var PrivateKey|MockObject
+         */
         $privateKeyMock = $this->createMock(PrivateKey::class);
 
         $testedObject = $this->getTestedClassObject();
@@ -99,6 +106,9 @@ class PublicKeyTest extends TestCase
     public function testGetSin(): void
     {
         $testedObject = $this->getTestedClassObject();
+        /**
+         * @var PrivateKey|MockObject
+         */
         $privateKeyMock = $this->getValidPrivateKeyMock();
         $testedObject->setPrivateKey($privateKeyMock);
 
@@ -110,6 +120,9 @@ class PublicKeyTest extends TestCase
     {
         $testedObject = $this->getTestedClassObject();
 
+        /**
+         * @var PrivateKey|MockObject
+         */
         $privateKeyMock = $this->getValidPrivateKeyMock();
         $result = $testedObject->generate($privateKeyMock);
 
@@ -119,6 +132,9 @@ class PublicKeyTest extends TestCase
     public function testGenerateWhenHexNotEmpty(): void
     {
         $testedObject = $this->getTestedClassObject();
+        /**
+         * @var PrivateKey|MockObject
+         */
         $privateKeyMock = $this->createMock(PrivateKey::class);
         $this->setProtectedPropertyValue($testedObject, 'hex', self::EXAMPLE_HEX);
         $result = $testedObject->generate($privateKeyMock);
@@ -129,6 +145,9 @@ class PublicKeyTest extends TestCase
     public function testGenerateWhenPrivateKeyInvalid(): void
     {
         $testedObject = $this->getTestedClassObject();
+        /**
+         * @var PrivateKey|MockObject
+         */
         $privateKeyMock = $this->createMock(PrivateKey::class);
         $privateKeyMock->expects($this->any())->method('isValid')->willReturn(false);
 

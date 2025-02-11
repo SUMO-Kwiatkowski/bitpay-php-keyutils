@@ -134,7 +134,7 @@ class Util
     /**
      * Encodes a decimal value into hexadecimal.
      *
-     * @param string $dec
+     * @param mixed $dec
      * @return string
      * @throws Exception
      * @throws Exception
@@ -142,7 +142,7 @@ class Util
     public static function encodeHex($dec)
     {
         if (!is_string($dec) && !ctype_digit((string)$dec)) {
-            throw new Exception(sprintf('Argument is expected to be a string of decimal numbers. 
+            throw new Exception(sprintf('Argument is expected to be a string of decimal numbers.
             You passed in "%s"', gettype($dec)));
         }
 
@@ -163,7 +163,7 @@ class Util
         return $hex;
     }
 
-    public static function doubleAndAdd($hex, PointInterface $point, CurveParameterInterface $parameters = null)
+    public static function doubleAndAdd($hex, PointInterface $point, ?CurveParameterInterface $parameters = null)
     {
         if (null === $parameters) {
             $parameters = new Secp256k1();
@@ -224,8 +224,8 @@ class Util
             $dec = Math::div($dec, 2);
             //sanity check to avoid infinite loop
             if (Math::cmp($prevDec, $dec) < 1) {
-                throw new Exception('Math library has unexpected behavior, 
-                please report the following information to support@bitpay.com. Math Engine is: 
+                throw new Exception('Math library has unexpected behavior,
+                please report the following information to support@bitpay.com. Math Engine is:
                 ' . Math::getEngineName() . '. PHP Version is: ' . phpversion() . '.');
             }
         }
@@ -275,7 +275,7 @@ class Util
      * @throws Exception
      * @throws Exception
      */
-    public static function pointDouble(PointInterface $point, CurveParameterInterface $parameters = null)
+    public static function pointDouble(PointInterface $point, ?CurveParameterInterface $parameters = null)
     {
         if ($point->isInfinity()) {
             return $point;

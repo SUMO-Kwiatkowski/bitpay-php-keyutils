@@ -18,6 +18,9 @@ $storageEngine = new EncryptedFilesystemStorage('YourMasterPassword');
 
 try {
 //  Use the EncryptedFilesystemStorage to load the Merchant's encrypted private key with the Master Password.
+    /**
+     * @var PrivateKey
+     */
     $privateKey = $storageEngine->load(__DIR__ . '/secure/SecurePathPlusYourClientName.key');
 } catch (Exception $ex) {
 //  Check if the loaded keys is a valid key

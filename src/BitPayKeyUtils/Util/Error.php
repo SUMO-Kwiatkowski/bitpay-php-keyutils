@@ -20,9 +20,9 @@ class Error
     {
         if ($print == true) {
             return debug_print_backtrace($options, $limit);
-        } else {
-            return debug_backtrace($options, $limit);
         }
+
+        return debug_backtrace($options, $limit);
     }
 
     /**
@@ -33,7 +33,6 @@ class Error
      * Returns NULL if there hasn't been an error yet.
      * (PHP 5 >= 5.2.0)
      *
-     * @param void
      * @return array
      */
     final public function last()
@@ -57,7 +56,7 @@ class Error
      */
     final public function log($message, $message_type = 0, $destination = '', $extra_headers = '')
     {
-        return error_log((string)$message, $message_type = 0, $destination = '', $extra_headers = '');
+        return error_log((string)$message, $message_type, $destination, $extra_headers);
     }
 
     /**
@@ -66,16 +65,16 @@ class Error
      * parameter is given.
      * (PHP 4, PHP 5)
      *
-     * @param bool
+     * @param int|null
      * @return int
      */
-    final public function reporting($level = false)
+    final public function reporting($level = null)
     {
-        if ($level !== false) {
+        if ($level !== null) {
             return error_reporting($level);
-        } else {
-            return error_reporting();
         }
+
+        return error_reporting();
     }
 
     /**
@@ -85,41 +84,38 @@ class Error
      *
      * @param string
      * @param string
-     * @param mixed
+     * @param callable|null
      * @param int
-     * return mixed
      * @return bool|callable|mixed|null
      */
-    final public function handler($type = 'error', $action = 'restore', $callable_handler = false, $error_types = null)
-    {
+    final public function handler(
+        $type = 'error',
+        $action = 'restore',
+        callable | null $callable_handler = null,
+        $error_types = null
+    ) {
         if (empty($error_types)) {
-            $error_types = E_ALL | E_STRICT;
+            $error_types = PHP_VERSION_ID < 80400 ? E_ALL | E_STRICT : E_ALL;
         }
         switch (strtolower($type)) {
             case 'error':
                 switch (strtolower($action)) {
                     case 'restore':
                         return restore_error_handler();
-                        break;
                     case 'set':
                         return set_error_handler($callable_handler, $error_types);
-                        break;
                     default:
                         return false;
                 }
-                break;
             case 'exception':
                 switch (strtolower($action)) {
                     case 'restore':
                         return restore_exception_handler();
-                        break;
                     case 'set':
                         return set_exception_handler($callable_handler);
-                        break;
                     default:
                         return false;
                 }
-                break;
             default:
                 return false;
         }

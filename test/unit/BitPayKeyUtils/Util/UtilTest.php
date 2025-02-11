@@ -6,6 +6,7 @@ namespace BitPayKeyUtils\UnitTest\Util;
 
 use BitPayKeyUtils\Util\Point;
 use BitPayKeyUtils\Util\Util;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class UtilTest extends TestCase
@@ -118,6 +119,9 @@ class UtilTest extends TestCase
 
     public function testPointDouble(): void
     {
+        /**
+         * @var Point|MockObject
+         */
         $pointInterface = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterface->method('getX')->willReturn('5');
         $pointInterface->method('getY')->willReturn('3');
@@ -131,10 +135,16 @@ class UtilTest extends TestCase
 
     public function testPointAdd(): void
     {
+        /**
+         * @var Point|MockObject
+         */
         $pointInterfaceP = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterfaceP->method('getX')->willReturn('6');
         $pointInterfaceP->method('getY')->willReturn('9');
 
+        /**
+         * @var Point|MockObject
+         */
         $pointInterfaceQ = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterfaceQ->method('getX')->willReturn('8');
         $pointInterfaceQ->method('getY')->willReturn('2');
@@ -148,10 +158,16 @@ class UtilTest extends TestCase
 
     public function testPointAddSameValues(): void
     {
+        /**
+         * @var Point|MockObject
+         */
         $pointInterfaceP = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterfaceP->method('getX')->willReturn('5');
         $pointInterfaceP->method('getY')->willReturn('3');
 
+        /**
+         * @var Point|MockObject
+         */
         $pointInterfaceQ = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterfaceQ->method('getX')->willReturn('5');
         $pointInterfaceQ->method('getY')->willReturn('3');
@@ -165,11 +181,17 @@ class UtilTest extends TestCase
 
     public function testPointAddInfinity(): void
     {
+        /**
+         * @var Point|MockObject
+         */
         $pointInterfaceP = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterfaceP->method('isInfinity')->willReturn(false);
         $pointInterfaceP->method('getX')->willReturn('1');
         $pointInterfaceP->method('getY')->willReturn('2');
 
+        /**
+         * @var Point|MockObject
+         */
         $pointInterfaceQ = $this->getMockBuilder(Point::class)->disableOriginalConstructor()->getMock();
         $pointInterfaceQ->method('isInfinity')->willReturn(true);
 

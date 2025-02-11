@@ -6,6 +6,7 @@ namespace BitPayKeyUtils\UnitTest\Storage;
 
 use BitPayKeyUtils\KeyHelper\Key;
 use BitPayKeyUtils\Storage\FilesystemStorage;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class FilesystemStorageTest extends TestCase
@@ -20,6 +21,9 @@ class FilesystemStorageTest extends TestCase
     public function testPersist(): void
     {
         $filesystemStorage = $this->createClassObject();
+        /**
+         * @var Key|MockObject
+         */
         $keyInterface = $this->getMockBuilder(Key::class)->setMockClassName('KeyMock1')->getMock();
         $keyInterface->method('getId')->willReturn(__DIR__ . '/test1.txt');
         self::assertFileExists(__DIR__ . '/test1.txt');
