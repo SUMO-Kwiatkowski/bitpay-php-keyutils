@@ -31,6 +31,6 @@
     "phpunit/phpunit": "^10.5.48"
   },
   "suggest": {
-    "ext-gmp": "Required to use this package with GMP instead of BCMath"
+    "ext-gmp": "GMP provides better performance than BCMath"
   }
 }
